@@ -8,11 +8,16 @@ import { PaisService } from '../../services/pais.service';
   selector: 'app-ver-pais',
   templateUrl: './ver-pais.component.html',
   styles: [
+    `
+    span {
+      margin-right: 10px
+    }
+    `
   ]
 })
 export class VerPaisComponent implements OnInit {
 
-  pais!: Country;
+  pais: Country [] = []
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -22,7 +27,7 @@ export class VerPaisComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params
       .pipe(
-        switchMap( (param) => this.paisService.getPaisPorID(param.id)),
+        switchMap((param) => this.paisService.getPaisPorID(param.id)),
         tap(console.log)
       )
       .subscribe(pais => this.pais = pais)

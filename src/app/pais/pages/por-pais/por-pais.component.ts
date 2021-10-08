@@ -17,7 +17,7 @@ export class PorPaisComponent {
 
   termino: string = ''
   hayError: boolean = false
-  paises: Country[] = []
+  paises: Country [] = []
   paisesSugeridos: Country[] = []
   mostrarSugerencias: boolean = false
 
